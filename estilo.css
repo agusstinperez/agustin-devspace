@@ -1,69 +1,83 @@
-:root{
---bg: #0b0f13; /* fondo general */
---surface: #0f1419; /* cards, sidebar */
---muted: #9aa5b1; /* texto secundario */
---text: #e6eef3; /* texto principal */
---accent: #00bcd4; /* acento: celeste */
---glass: rgba(255,255,255,0.03);
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f3f0ff; /* Lavanda suave */
+    color: #222; /* Texto más oscuro y legible */
 }
 
-
-*{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial}
-body{background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
-
-
-/* Layout */
-.with-sidebar{display:flex;min-height:100vh}
-
-
-.sidebar{
-width:260px;
-background:linear-gradient(180deg,var(--surface), #0d1114);
-padding:18px 12px;
-display:flex;flex-direction:column;gap:12px;transition:width .32s ease, transform .24s ease;
-border-right:1px solid rgba(255,255,255,0.03);
+/* Contenedor general */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
+/* Título principal */
+h1, h2, h3 {
+    color: #3a2d6b; /* Lavanda oscuro para contraste */
+}
 
-.sidebar.collapsed{width:72px}
+/* Navegación lateral */
+nav {
+    width: 220px;
+    background-color: #ffffff;
+    border-right: 2px solid #e0dafc;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+}
 
+nav ul {
+    list-style: none;
+    padding: 0;
+}
 
-.brand{display:flex;align-items:center;gap:12px}
-.btn-toggle{background:none;border:0;color:var(--muted);cursor:pointer;padding:6px;border-radius:8px}
-.btn-toggle:focus{outline:2px solid rgba(0,188,212,0.12)}
-.brand-name{font-size:1.05rem;margin:0}
-.brand-role{margin:0;font-size:.75rem;color:var(--muted)}
+nav ul li {
+    margin: 12px 0;
+}
 
+nav a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #4b3790;
+}
 
-.nav ul{list-style:none;padding:0;margin:8px 0;display:flex;flex-direction:column;gap:6px}
-.nav a{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--muted);padding:10px;border-radius:8px;transition:background .18s, color .18s}
-.nav a .material-icons{font-size:20px}
-.nav a:hover{background:rgba(255,255,255,0.02);color:var(--text)}
-.nav a.active{background:linear-gradient(90deg, rgba(0,188,212,0.08), rgba(0,188,212,0.02));color:var(--accent)}
+nav a:hover {
+    text-decoration: underline;
+}
 
+/* Contenido principal */
+main {
+    margin-left: 260px;
+    padding: 20px;
+}
 
-/* When collapsed, hide labels */
-.sidebar.collapsed .label{display:none}
-.sidebar.collapsed .brand-info{display:none}
+/* Footer */
+footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #555;
+}
 
+/* Íconos (si se usan) */
+.icon {
+    margin-right: 6px;
+}
 
-.sidebar-footer{margin-top:auto;color:var(--muted);font-size:.75rem}
+/* Responsivo para celulares */
+@media (max-width: 768px) {
+    nav {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+    }
 
-
-/* Main content */
-.main-content{flex:1;padding:28px;overflow:auto}
-.hero{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:22px;border-radius:12px;margin-bottom:20px;box-shadow:0 4px 24px rgba(0,0,0,0.6)}
-.hero-inner h2{margin:0 0 8px 0;font-weight:600}
-.hero-inner .accent{color:var(--accent)}
-.subtitle{color:var(--muted);margin-top:0}
-.quick-links{margin:16px 0;display:flex;gap:10px}
-.btn{background:linear-gradient(90deg,var(--accent), #0097a7);color:#021416;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:600}
-.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--text)}
-.mini{color:var(--muted);font-size:.95rem}
-
-
-.grid-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:10px}
-.card{background:var(--surface);padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(2,6,10,0.6)}
-.card h3{margin-top:0}
-.link{c
+    main {
+        margin-left: 0;
+    }
+}
